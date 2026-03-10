@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-ti@w_5ga2v0$6&sfkl+jfsd0adu^&(@ei0yr95zldnc688+!rb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','localhost', '127.0.0.1','192.168.1.47']
+ALLOWED_HOSTS = ['*','localhost', '127.0.0.1','192.168.1.39']
 
 
 # Application definition
@@ -76,7 +76,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "http://192.168.1.54:3000",  # Puerto del frontend
+    "http://192.168.1.39:3000",  # Puerto del frontend
 ]
 
 CORS_ALLOW_HEADERS = list(default_headers) + [
@@ -114,14 +114,19 @@ WSGI_APPLICATION = 'sigesor.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+import os 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sigesor',  # Nombre de la base de datos
-        'USER': 'root',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',  # Cambia si usas un servidor remoto
-        'PORT': '3306',  # Puerto por defecto de MySQL
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
 
