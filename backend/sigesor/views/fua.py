@@ -164,3 +164,17 @@ class FuaEstadoUpdateView(generics.UpdateAPIView):
     queryset = FUA.objects.all()
     serializer_class = FUASerializer   
     lookup_field = 'id'
+
+class VerificarFUADuplicado(APIView):
+    #permission_classes = [IsAuthenticated]
+    
+    def get(self, request):
+        lote = request.GET.get('lote')
+        numero = request.GET.get('numero')
+        
+        if not lote or not numero:
+            return Response({'existe': False})
+        
+        existe = FUA.objects.filter(lote=lote, numero=numero).exists()
+        
+        return Response({'existe': existe})

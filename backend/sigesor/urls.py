@@ -3,7 +3,7 @@ from django.urls import path
 from . import views
 from sigesor.views.usuario import UsuarioRegistroView, UsuarioListView, UsuarioDeleteView, UsuarioDetailView, UsuarioEditView, ResetPasswordView
 from sigesor.views.usuario import CustomTokenObtainPairView,UsuarioActualView,ChangePasswordView
-from sigesor.views.fua import FUARegistroView, FUAsExtemporaneosView,FechasDisponiblesExtemporaneosView,FUAByIdView, FuaEstadoUpdateView, FUAsObservadosView,FechasDisponiblesObservadosView
+from sigesor.views.fua import FUARegistroView, FUAsExtemporaneosView,FechasDisponiblesExtemporaneosView,FUAByIdView, FuaEstadoUpdateView, FUAsObservadosView,FechasDisponiblesObservadosView, VerificarFUADuplicado
 from sigesor.views.procedimientos import ProcedimientosPorFUAView
 from sigesor.views.dashboard import dashboard_stats
 
@@ -19,6 +19,7 @@ urlpatterns = [
     path('api/usuarios/<str:dni>/reset-password/', ResetPasswordView.as_view(), name='reset_password'),
     path('api/usuarios/cambiar-contrasena/', ChangePasswordView.as_view(), name="cambiar_contrasena"),
     path('api/fua/registro/', FUARegistroView.as_view(), name='fua-registro'),
+    path('api/fua/verificar-duplicado/', VerificarFUADuplicado.as_view(), name='verificar-fua-duplicado'),
     
     #BADENJA EXTEMPORANEOS
     path('api/bandeja/extemporaneos/', FUAsExtemporaneosView.as_view(), name='bandeja-extemporaneos'),
