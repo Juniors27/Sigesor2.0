@@ -204,10 +204,17 @@ Aquí puedes agregar imágenes del sistema:
 
 # Futuras mejoras
 
-* Implementación de Docker para despliegue
-* Mejoras en seguridad y autenticación
-* Optimización del sistema de reportes
-* Implementación de CI/CD
+* Implementación de **Docker** para facilitar el despliegue y la portabilidad del sistema.
+* Refactorización del frontend hacia una **arquitectura modular**, separando responsabilidades entre:
+
+  * **Hooks** (lógica reutilizable de React)
+  * **Services** (consumo de API)
+  * **API configuration** (configuración centralizada de endpoints)
+  * **Utils** (funciones auxiliares reutilizables)
+  * **Components** (presentación UI)
+
+Esta mejora permitirá una mejor **organización del código, mantenibilidad y escalabilidad del sistema**.
+
 
 ---
 
