@@ -2,11 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react"
 
+import { FILTER_TYPE_DATE, FILTER_TYPE_FUA, FILTER_TYPE_MONTH } from "@/components/features/bandeja-fua/bandejaFua.constants"
 import { deleteTrayItem, getTrayAvailableDates, getTrayItems } from "@/services/trays.service"
-
-const FILTER_TYPE_MONTH = "A\u00f1o y mes del Formato"
-const FILTER_TYPE_DATE = "Fecha de Atencion"
-const FILTER_TYPE_FUA = "N\u00b0 de FUA"
 
 function normalizeAvailableDates(items) {
   const grouped = {}
@@ -44,7 +41,7 @@ function normalizeAvailableDates(items) {
   return Object.values(grouped).sort((a, b) => b.id.localeCompare(a.id))
 }
 
-export default function useFuaTray(type) {
+export default function useBandejaFua(type) {
   const [filterType, setFilterType] = useState(FILTER_TYPE_MONTH)
   const [filterValue, setFilterValue] = useState("")
   const [showDropdown, setShowDropdown] = useState(false)
@@ -105,7 +102,7 @@ export default function useFuaTray(type) {
     const id = fuaToDelete
 
     try {
-      await deleteTrayItem("extemporaneos", id)
+      await deleteTrayItem(type, id)
       setFuas((currentFuas) => currentFuas.filter((fua) => fua.id !== id))
       alert(`FUA ${id} eliminado correctamente`)
     } catch (currentError) {
@@ -174,3 +171,5 @@ export default function useFuaTray(type) {
     confirmDelete,
   }
 }
+
+

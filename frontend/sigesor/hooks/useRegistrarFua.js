@@ -221,19 +221,25 @@ export default function useRegistrarFua() {
     handleAddProcedimiento: (event) => {
       event.preventDefault()
       const { nuevoProcedimiento } = formFua
+      const codigoNormalizado = nuevoProcedimiento.codigo.trim()
 
-      if (!nuevoProcedimiento.codigo || !nuevoProcedimiento.nombre) {
+      if (!codigoNormalizado || !nuevoProcedimiento.nombre) {
         toast.error("Por favor complete el codigo y nombre del procedimiento")
         return
       }
 
-      if (!procedimientosFua[nuevoProcedimiento.codigo]) {
+      if (formFua.procedimientos.some((proc) => proc.codigo === codigoNormalizado)) {
+        toast.error(`El codigo ${codigoNormalizado} ya fue ingresado`)
+        return
+      }
+
+      if (!procedimientosFua[codigoNormalizado]) {
         toast.warning("Codigo de procedimiento no encontrado en el catalogo")
       }
 
       setFormFua((current) => ({
         ...current,
-        procedimientos: [...current.procedimientos, { id: Date.now(), ...nuevoProcedimiento }],
+        procedimientos: [...current.procedimientos, { id: Date.now(), ...nuevoProcedimiento, codigo: codigoNormalizado }],
         nuevoProcedimiento: { codigo: "", nombre: "", cantidad: 1 },
       }))
     },
@@ -272,3 +278,4 @@ export default function useRegistrarFua() {
     },
   }
 }
+

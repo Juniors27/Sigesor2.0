@@ -105,7 +105,7 @@ export default function DashboardPageScreen() {
               </div>
               <div>
                 <h1 className="text-2xl font-semibold text-white">Panel de control</h1>
-                <p className="mt-2 text-sm text-slate-300">Cargando estadisticas institucionales...</p>
+                <p className="mt-2 text-sm text-slate-300">Cargando estadísticas institucionales...</p>
               </div>
             </div>
           </div>
@@ -171,7 +171,7 @@ export default function DashboardPageScreen() {
               <div>
                 <h2 className="text-xl font-semibold text-white">Control de FUAs</h2>
                 <p className="mt-1 text-sm text-slate-400">
-                  Registros con observacion operativa o presentacion fuera de plazo.
+                  Registros con observación operativa o presentación fuera de plazo.
                 </p>
               </div>
             </div>
@@ -200,9 +200,9 @@ export default function DashboardPageScreen() {
           <div className="rounded-[28px] border border-white/10 bg-slate-900/80 p-6 shadow-xl shadow-slate-950/20">
             <div className="mb-5 flex items-center justify-between gap-4">
               <div>
-                <h2 className="text-xl font-semibold text-white">Auditoria y revision</h2>
+                <h2 className="text-xl font-semibold text-white">Auditoría y revisión</h2>
                 <p className="mt-1 text-sm text-slate-400">
-                  Distribucion actual de expedientes por tipo de evaluacion.
+                  Distribución actual de expedientes por tipo de evaluación.
                 </p>
               </div>
             </div>
@@ -231,9 +231,9 @@ export default function DashboardPageScreen() {
 
         <section className="flex flex-col gap-4 rounded-[28px] border border-white/10 bg-slate-900/80 p-5 shadow-xl shadow-slate-950/20 sm:flex-row sm:items-center sm:justify-between sm:p-6">
           <div>
-            <h2 className="text-lg font-semibold text-white">Actualizacion manual</h2>
+            <h2 className="text-lg font-semibold text-white">Actualización manual</h2>
             <p className="mt-1 text-sm text-slate-400">
-              Refresca la informacion para consultar el estado mas reciente de los registros.
+              Refresca la información para consultar el estado mas reciente de los registros.
             </p>
           </div>
           <button
